@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Emergent Communication in Continuous Worlds: a decentralised methodology for populations of agents to self-organise grounded vocabularies at scale.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergent Communication in Continuous Worlds</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <style>
+    .publication-title, .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .affiliation-number { margin-right: .35em; }
+    .publication-title .title-lead { font-size: .72em; }
+    .publication-title .title-subtitle { font-size: 1em; }
+    .acl-logo { display: block; width: 25px; height: auto; max-height: 20px; object-fit: contain; }
+    .fa-gitlab { color: #fc6d26; }
+    h1.title, h2.title, h3.title, h2.subtitle { text-align: center; }
+    .publication-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .link-block { display: inline-flex; }
+    .paper-figure { margin: 24px auto; text-align: center; }
+    .paper-figure img { max-width: 100%; height: auto; }
+    .figure-caption { color: #6b7280; font-size: .9rem; margin-top: 8px; }
+    .mini-demo-frame { display: block; width: 100%; height: 480px; border: 1px solid #e5e7eb; border-radius: 8px; background: #f5f7fb; pointer-events: none; }
+    .content pre { text-align: left; }
+    .hero .hero-body { padding-bottom: 1.25rem; }
+    .project-tldr { max-width: 760px; margin-inline: auto; font-size: 1.05rem; line-height: 1.5; }
+    .story-beat { padding-block: 1.75rem; }
+    .story-lead { max-width: 760px; margin: 0 auto 2rem; font-size: 1.15rem; line-height: 1.75; }
+    .human-senses-content { max-width: none; margin-inline: 0; margin-bottom: 0; }
+    .bootstrapping-lead { max-width: none; }
+    .story-callout { padding: 1.4rem 1.6rem; border-left: 4px solid #3273dc; background: #f5f7fb; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.45; }
+    .em-spectrum-scroll { overflow-x: auto; margin: 1.5rem 0 .25rem; padding-bottom: .25rem; }
+    .em-spectrum-labels, .em-spectrum-bar { display: grid; grid-template-columns: 1.15fr 1fr 1fr .4fr 1fr .9fr .9fr; min-width: 680px; }
+    .em-spectrum-labels span { padding: .35rem .2rem; color: #4b5563; text-align: center; font-size: .76rem; line-height: 1.2; }
+    .em-spectrum-labels .visible-label { color: #1d4ed8; font-weight: 700; }
+    .em-spectrum-bar { position: relative; height: 22px; overflow: hidden; border-radius: 999px; }
+    .em-spectrum-bar span { border-right: 2px solid #fff; background: #cbd5e1; }
+    .em-spectrum-bar span:nth-child(2), .em-spectrum-bar span:nth-child(6) { background: #aebdce; }
+    .em-spectrum-bar .visible-band { background: linear-gradient(90deg, #6a00a8, #2855d9, #08a8c5, #22a45a, #d6d52a, #f08b22, #e32929); }
+    .em-spectrum-wave { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .em-spectrum-wave .wave-shadow { fill: none; stroke: rgba(15,23,42,.5); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+    .em-spectrum-wave .wave-line { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+    .em-spectrum-scale { display: flex; justify-content: space-between; min-width: 680px; margin-top: .5rem; color: #6b7280; font-size: .76rem; }
+    .sensor-scene-object { display: flex; justify-content: center; align-items: center; gap: .55rem; color: #374151; font-weight: 600; }
+    .sensor-scene-object i { color: #3273dc; font-size: 1.15rem; }
+    .sensor-branch { display: block; width: 100%; height: 32px; }
+    .sensor-branch path { fill: none; stroke: #aab5c1; stroke-width: 1.5; }
+    .agent-sensor-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 12px; }
+    .agent-sensor-card { padding: .8rem; border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; text-align: center; }
+    .agent-sensor-title { margin-bottom: .55rem; color: #27364b; font-size: .9rem; font-weight: 700; }
+    .agent-sensor-title i { margin-right: .3rem; color: #3273dc; }
+    .vector-dimension-count { display: block; margin-top: .1rem; color: #6b7280; font-size: .7rem; font-weight: 400; }
+    .vector-group { margin-top: .45rem; padding: .4rem; border-radius: 7px; background: #f5f7fb; }
+    .vector-group.shared { background: #eef6ff; }
+    .vector-group-label { display: block; margin-bottom: .2rem; color: #6b7280; font-size: .66rem; text-transform: uppercase; letter-spacing: .04em; }
+    .vector-entry { display: grid; grid-template-columns: 1fr auto; gap: .4rem; padding: .16rem .2rem; color: #27364b; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .76rem; text-align: left; }
+    .vector-entry code { padding: 0; background: transparent; color: inherit; font: inherit; }
+    .feature-vector-note { margin: .7rem 0 0; color: #6b7280; text-align: center; font-size: .75rem; }
+    .interaction-step { height: 100%; padding: 1.2rem; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; }
+    .interaction-step .step-number { color: #3273dc; font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+    .story-figure { height: 100%; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; }
+    .story-figure img, .story-figure video { display: block; width: 100%; height: auto; }
+    .story-figure .figure-caption { margin: .8rem .25rem .15rem; text-align: left; }
+    .story-figure .caption-centered { text-align: center; }
+    .reference-game-figure { width: min(100%, 740px); height: auto; margin: 1.25rem auto 0; padding: .5rem; box-sizing: border-box; }
+    .reference-game-row .reference-game-figure { margin: 0 auto; }
+    .reference-game-figure .figure-caption { margin: .45rem .25rem .1rem; text-align: center; font-size: .78rem; }
+    .story-stat { display: flex; align-items: baseline; gap: .7rem; padding: 1rem 0; border-top: 1px solid #e5e7eb; }
+    .story-stat strong { color: #3273dc; font-size: 1.7rem; white-space: nowrap; }
+    .story-stat span { color: #4b5563; }
+    .story-beat h2.title.has-text-left, .story-beat h3.title.has-text-left { text-align: left; }
+    .footer { padding: 1.25rem 1.5rem; }
+    .footer .content p { margin: 0; }
+    @media (max-width: 800px) { .mini-demo-frame { height: min(560px, calc(100vw - 32px)); } }
+    @media (max-width: 600px) { .mini-demo-frame { height: min(800px, calc(200vw - 70px)); } }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"><span class="title-lead">Emergent Communication in Continuous Worlds:</span><br><span class="title-subtitle">Self-Organisation of Conceptually Grounded Vocabularies at Scale</span></h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">Jérôme Botoko Ekila<sup>1</sup>,</span>
+            <span class="author-block">Lara Verheyen<sup>1</sup>,</span>
+            <span class="author-block">Jens Nevens<sup>1</sup>,</span><br>
+            <span class="author-block">Katrien Beuls<sup>2*</sup>,</span>
+            <span class="author-block">Paul Van Eecke<sup>1*</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors mt-2">
+            <span class="author-block"><span class="affiliation-number">1</span>Artificial Intelligence Laboratory, Vrije Universiteit Brussel</span><br>
+            <span class="author-block"><span class="affiliation-number">2</span>Faculté d'informatique, Université de Namur</span><br>
+            <span><span class="affiliation-number">*</span>Joint last authors</span>
+          </div>
+          <div class="is-size-5 mt-2"><strong>Transactions of the ACL (TACL)</strong></div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://aclanthology.org/2026.tacl-1.101.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><img class="acl-logo" src="data/acl-logo.svg" alt=""></span><span>Paper&nbsp;↗</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://gitlab.ai.vub.ac.be/ehai/self-org-at-scale-tacl" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-gitlab"></i></span><span>Code&nbsp;↗</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="data/geometric-intuition.html" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-shapes"></i></span><span>Interactive Visualisation&nbsp;↗</span>
+                </a>
+              </span>
+            </div>
+            <div class="project-tldr mt-4"><strong>TL;DR:</strong> Populations of agents can develop grounded linguistic conventions through local situated communicative interactions. The method is transparent and works across 37 datasets, remaining effective when agents perceive the world differently.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section story-beat" id="motivation">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered"><div class="column is-full-width">
+      <h2 class="title is-3">Human languages are grounded in the sensory apparatus of humans</h2>
+      <div class="content has-text-justified story-lead human-senses-content">
+        <p>The electromagnetic spectrum spans radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Human vision detects only a small portion of this spectrum, known as visible light.</p>
+        <div class="em-spectrum-scroll" role="img" aria-label="Schematic electromagnetic spectrum labeled from radio waves through gamma rays. A white wave becomes more frequent toward gamma rays, and visible light is highlighted.">
+          <div class="em-spectrum-labels"><span>Radio<br>waves</span><span>Microwaves</span><span>Infrared</span><span class="visible-label">Visible<br>light</span><span>Ultraviolet</span><span>X-rays</span><span>Gamma<br>rays</span></div>
+          <div class="em-spectrum-bar" aria-hidden="true"><span></span><span></span><span></span><span class="visible-band"></span><span></span><span></span><span></span><svg class="em-spectrum-wave" viewBox="0 0 1000 22" preserveAspectRatio="none"><path class="wave-shadow" d="M0.0 11.00 L2.5 11.17 L5.0 11.35 L7.5 11.53 L10.0 11.71 L12.5 11.90 L15.0 12.09 L17.5 12.29 L20.0 12.48 L22.5 12.69 L25.0 12.89 L27.5 13.09 L30.0 13.30 L32.5 13.50 L35.0 13.71 L37.5 13.92 L40.0 14.13 L42.5 14.33 L45.0 14.53 L47.5 14.73 L50.0 14.93 L52.5 15.13 L55.0 15.31 L57.5 15.50 L60.0 15.68 L62.5 15.85 L65.0 16.01 L67.5 16.16 L70.0 16.30 L72.5 16.44 L75.0 16.56 L77.5 16.66 L80.0 16.76 L82.5 16.84 L85.0 16.90 L87.5 16.95 L90.0 16.99 L92.5 17.00 L95.0 16.99 L97.5 16.97 L100.0 16.93 L102.5 16.86 L105.0 16.77 L107.5 16.67 L110.0 16.54 L112.5 16.38 L115.0 16.21 L117.5 16.01 L120.0 15.79 L122.5 15.55 L125.0 15.28 L127.5 15.00 L130.0 14.69 L132.5 14.36 L135.0 14.02 L137.5 13.65 L140.0 13.27 L142.5 12.88 L145.0 12.47 L147.5 12.04 L150.0 11.61 L152.5 11.17 L155.0 10.73 L157.5 10.28 L160.0 9.83 L162.5 9.39 L165.0 8.94 L167.5 8.51 L170.0 8.09 L172.5 7.68 L175.0 7.29 L177.5 6.93 L180.0 6.58 L182.5 6.26 L185.0 5.97 L187.5 5.72 L190.0 5.49 L192.5 5.31 L195.0 5.17 L197.5 5.07 L200.0 5.01 L202.5 5.00 L205.0 5.04 L207.5 5.12 L210.0 5.26 L212.5 5.44 L215.0 5.67 L217.5 5.95 L220.0 6.28 L222.5 6.65 L225.0 7.06 L227.5 7.51 L230.0 8.00 L232.5 8.51 L235.0 9.06 L237.5 9.63 L240.0 10.22 L242.5 10.82 L245.0 11.42 L247.5 12.03 L250.0 12.63 L252.5 13.22 L255.0 13.78 L257.5 14.32 L260.0 14.83 L262.5 15.30 L265.0 15.72 L267.5 16.09 L270.0 16.41 L272.5 16.66 L275.0 16.84 L277.5 16.96 L280.0 17.00 L282.5 16.97 L285.0 16.86 L287.5 16.67 L290.0 16.41 L292.5 16.08 L295.0 15.68 L297.5 15.21 L300.0 14.68 L302.5 14.09 L305.0 13.46 L307.5 12.79 L310.0 12.09 L312.5 11.37 L315.0 10.64 L317.5 9.91 L320.0 9.19 L322.5 8.49 L325.0 7.83 L327.5 7.22 L330.0 6.66 L332.5 6.17 L335.0 5.76 L337.5 5.43 L340.0 5.19 L342.5 5.04 L345.0 5.00 L347.5 5.06 L350.0 5.23 L352.5 5.49 L355.0 5.86 L357.5 6.32 L360.0 6.87 L362.5 7.50 L365.0 8.20 L367.5 8.95 L370.0 9.75 L372.5 10.57 L375.0 11.41 L377.5 12.25 L380.0 13.06 L382.5 13.84 L385.0 14.56 L387.5 15.22 L390.0 15.79 L392.5 16.26 L395.0 16.62 L397.5 16.87 L400.0 16.99 L402.5 16.98 L405.0 16.84 L407.5 16.56 L410.0 16.17 L412.5 15.65 L415.0 15.02 L417.5 14.30 L420.0 13.49 L422.5 12.63 L425.0 11.72 L427.5 10.79 L430.0 9.86 L432.5 8.95 L435.0 8.09 L437.5 7.30 L440.0 6.60 L442.5 6.00 L445.0 5.54 L447.5 5.21 L450.0 5.03 L452.5 5.01 L455.0 5.15 L457.5 5.45 L460.0 5.90 L462.5 6.49 L465.0 7.21 L467.5 8.04 L470.0 8.95 L472.5 9.93 L475.0 10.94 L477.5 11.96 L480.0 12.95 L482.5 13.90 L485.0 14.76 L487.5 15.51 L490.0 16.12 L492.5 16.59 L495.0 16.88 L497.5 17.00 L500.0 16.93 L502.5 16.67 L505.0 16.23 L507.5 15.62 L510.0 14.85 L512.5 13.97 L515.0 12.97 L517.5 11.91 L520.0 10.82 L522.5 9.73 L525.0 8.67 L527.5 7.69 L530.0 6.82 L532.5 6.10 L535.0 5.54 L537.5 5.17 L540.0 5.01 L542.5 5.06 L545.0 5.33 L547.5 5.80 L550.0 6.47 L552.5 7.31 L555.0 8.28 L557.5 9.37 L560.0 10.52 L562.5 11.69 L565.0 12.84 L567.5 13.92 L570.0 14.90 L572.5 15.72 L575.0 16.36 L577.5 16.79 L580.0 16.99 L582.5 16.94 L585.0 16.66 L587.5 16.14 L590.0 15.40 L592.5 14.48 L595.0 13.41 L597.5 12.23 L600.0 11.00 L602.5 9.76 L605.0 8.57 L607.5 7.49 L610.0 6.55 L612.5 5.81 L615.0 5.29 L617.5 5.03 L620.0 5.04 L622.5 5.32 L625.0 5.85 L627.5 6.63 L630.0 7.61 L632.5 8.76 L635.0 10.01 L637.5 11.31 L640.0 12.61 L642.5 13.83 L645.0 14.92 L647.5 15.82 L650.0 16.49 L652.5 16.89 L655.0 17.00 L657.5 16.81 L660.0 16.33 L662.5 15.57 L665.0 14.58 L667.5 13.41 L670.0 12.10 L672.5 10.74 L675.0 9.38 L677.5 8.11 L680.0 6.98 L682.5 6.07 L685.0 5.41 L687.5 5.06 L690.0 5.03 L692.5 5.32 L695.0 5.93 L697.5 6.82 L700.0 7.95 L702.5 9.25 L705.0 10.65 L707.5 12.08 L710.0 13.45 L712.5 14.68 L715.0 15.71 L717.5 16.46 L720.0 16.90 L722.5 16.99 L725.0 16.72 L727.5 16.12 L730.0 15.20 L732.5 14.03 L735.0 12.67 L737.5 11.20 L740.0 9.72 L742.5 8.31 L745.0 7.07 L747.5 6.07 L750.0 5.37 L752.5 5.03 L755.0 5.07 L757.5 5.49 L760.0 6.26 L762.5 7.35 L765.0 8.67 L767.5 10.16 L770.0 11.70 L772.5 13.20 L775.0 14.56 L777.5 15.68 L780.0 16.49 L782.5 16.93 L785.0 16.97 L787.5 16.59 L790.0 15.83 L792.5 14.74 L795.0 13.37 L797.5 11.84 L800.0 10.25 L802.5 8.70 L805.0 7.32 L807.5 6.19 L810.0 5.41 L812.5 5.03 L815.0 5.09 L817.5 5.58 L820.0 6.47 L822.5 7.70 L825.0 9.18 L827.5 10.80 L830.0 12.44 L832.5 13.97 L835.0 15.29 L837.5 16.27 L840.0 16.86 L842.5 16.99 L845.0 16.65 L847.5 15.88 L850.0 14.71 L852.5 13.25 L855.0 11.61 L857.5 9.92 L860.0 8.30 L862.5 6.90 L865.0 5.83 L867.5 5.18 L870.0 5.01 L872.5 5.32 L875.0 6.11 L877.5 7.31 L880.0 8.82 L882.5 10.52 L885.0 12.26 L887.5 13.90 L890.0 15.29 L892.5 16.33 L895.0 16.90 L897.5 16.96 L900.0 16.51 L902.5 15.57 L905.0 14.22 L907.5 12.59 L910.0 10.81 L912.5 9.05 L915.0 7.45 L917.5 6.18 L920.0 5.33 L922.5 5.00 L925.0 5.22 L927.5 5.97 L930.0 7.19 L932.5 8.77 L935.0 10.55 L937.5 12.39 L940.0 14.09 L942.5 15.51 L945.0 16.50 L947.5 16.97 L950.0 16.87 L952.5 16.19 L955.0 15.02 L957.5 13.45 L960.0 11.63 L962.5 9.75 L965.0 7.99 L967.5 6.52 L970.0 5.50 L972.5 5.03 L975.0 5.15 L977.5 5.87 L980.0 7.11 L982.5 8.75 L985.0 10.63 L987.5 12.55 L990.0 14.31 L992.5 15.73 L995.0 16.66 L997.5 17.00 L1000.0 16.71"/><path class="wave-line" d="M0.0 11.00 L2.5 11.17 L5.0 11.35 L7.5 11.53 L10.0 11.71 L12.5 11.90 L15.0 12.09 L17.5 12.29 L20.0 12.48 L22.5 12.69 L25.0 12.89 L27.5 13.09 L30.0 13.30 L32.5 13.50 L35.0 13.71 L37.5 13.92 L40.0 14.13 L42.5 14.33 L45.0 14.53 L47.5 14.73 L50.0 14.93 L52.5 15.13 L55.0 15.31 L57.5 15.50 L60.0 15.68 L62.5 15.85 L65.0 16.01 L67.5 16.16 L70.0 16.30 L72.5 16.44 L75.0 16.56 L77.5 16.66 L80.0 16.76 L82.5 16.84 L85.0 16.90 L87.5 16.95 L90.0 16.99 L92.5 17.00 L95.0 16.99 L97.5 16.97 L100.0 16.93 L102.5 16.86 L105.0 16.77 L107.5 16.67 L110.0 16.54 L112.5 16.38 L115.0 16.21 L117.5 16.01 L120.0 15.79 L122.5 15.55 L125.0 15.28 L127.5 15.00 L130.0 14.69 L132.5 14.36 L135.0 14.02 L137.5 13.65 L140.0 13.27 L142.5 12.88 L145.0 12.47 L147.5 12.04 L150.0 11.61 L152.5 11.17 L155.0 10.73 L157.5 10.28 L160.0 9.83 L162.5 9.39 L165.0 8.94 L167.5 8.51 L170.0 8.09 L172.5 7.68 L175.0 7.29 L177.5 6.93 L180.0 6.58 L182.5 6.26 L185.0 5.97 L187.5 5.72 L190.0 5.49 L192.5 5.31 L195.0 5.17 L197.5 5.07 L200.0 5.01 L202.5 5.00 L205.0 5.04 L207.5 5.12 L210.0 5.26 L212.5 5.44 L215.0 5.67 L217.5 5.95 L220.0 6.28 L222.5 6.65 L225.0 7.06 L227.5 7.51 L230.0 8.00 L232.5 8.51 L235.0 9.06 L237.5 9.63 L240.0 10.22 L242.5 10.82 L245.0 11.42 L247.5 12.03 L250.0 12.63 L252.5 13.22 L255.0 13.78 L257.5 14.32 L260.0 14.83 L262.5 15.30 L265.0 15.72 L267.5 16.09 L270.0 16.41 L272.5 16.66 L275.0 16.84 L277.5 16.96 L280.0 17.00 L282.5 16.97 L285.0 16.86 L287.5 16.67 L290.0 16.41 L292.5 16.08 L295.0 15.68 L297.5 15.21 L300.0 14.68 L302.5 14.09 L305.0 13.46 L307.5 12.79 L310.0 12.09 L312.5 11.37 L315.0 10.64 L317.5 9.91 L320.0 9.19 L322.5 8.49 L325.0 7.83 L327.5 7.22 L330.0 6.66 L332.5 6.17 L335.0 5.76 L337.5 5.43 L340.0 5.19 L342.5 5.04 L345.0 5.00 L347.5 5.06 L350.0 5.23 L352.5 5.49 L355.0 5.86 L357.5 6.32 L360.0 6.87 L362.5 7.50 L365.0 8.20 L367.5 8.95 L370.0 9.75 L372.5 10.57 L375.0 11.41 L377.5 12.25 L380.0 13.06 L382.5 13.84 L385.0 14.56 L387.5 15.22 L390.0 15.79 L392.5 16.26 L395.0 16.62 L397.5 16.87 L400.0 16.99 L402.5 16.98 L405.0 16.84 L407.5 16.56 L410.0 16.17 L412.5 15.65 L415.0 15.02 L417.5 14.30 L420.0 13.49 L422.5 12.63 L425.0 11.72 L427.5 10.79 L430.0 9.86 L432.5 8.95 L435.0 8.09 L437.5 7.30 L440.0 6.60 L442.5 6.00 L445.0 5.54 L447.5 5.21 L450.0 5.03 L452.5 5.01 L455.0 5.15 L457.5 5.45 L460.0 5.90 L462.5 6.49 L465.0 7.21 L467.5 8.04 L470.0 8.95 L472.5 9.93 L475.0 10.94 L477.5 11.96 L480.0 12.95 L482.5 13.90 L485.0 14.76 L487.5 15.51 L490.0 16.12 L492.5 16.59 L495.0 16.88 L497.5 17.00 L500.0 16.93 L502.5 16.67 L505.0 16.23 L507.5 15.62 L510.0 14.85 L512.5 13.97 L515.0 12.97 L517.5 11.91 L520.0 10.82 L522.5 9.73 L525.0 8.67 L527.5 7.69 L530.0 6.82 L532.5 6.10 L535.0 5.54 L537.5 5.17 L540.0 5.01 L542.5 5.06 L545.0 5.33 L547.5 5.80 L550.0 6.47 L552.5 7.31 L555.0 8.28 L557.5 9.37 L560.0 10.52 L562.5 11.69 L565.0 12.84 L567.5 13.92 L570.0 14.90 L572.5 15.72 L575.0 16.36 L577.5 16.79 L580.0 16.99 L582.5 16.94 L585.0 16.66 L587.5 16.14 L590.0 15.40 L592.5 14.48 L595.0 13.41 L597.5 12.23 L600.0 11.00 L602.5 9.76 L605.0 8.57 L607.5 7.49 L610.0 6.55 L612.5 5.81 L615.0 5.29 L617.5 5.03 L620.0 5.04 L622.5 5.32 L625.0 5.85 L627.5 6.63 L630.0 7.61 L632.5 8.76 L635.0 10.01 L637.5 11.31 L640.0 12.61 L642.5 13.83 L645.0 14.92 L647.5 15.82 L650.0 16.49 L652.5 16.89 L655.0 17.00 L657.5 16.81 L660.0 16.33 L662.5 15.57 L665.0 14.58 L667.5 13.41 L670.0 12.10 L672.5 10.74 L675.0 9.38 L677.5 8.11 L680.0 6.98 L682.5 6.07 L685.0 5.41 L687.5 5.06 L690.0 5.03 L692.5 5.32 L695.0 5.93 L697.5 6.82 L700.0 7.95 L702.5 9.25 L705.0 10.65 L707.5 12.08 L710.0 13.45 L712.5 14.68 L715.0 15.71 L717.5 16.46 L720.0 16.90 L722.5 16.99 L725.0 16.72 L727.5 16.12 L730.0 15.20 L732.5 14.03 L735.0 12.67 L737.5 11.20 L740.0 9.72 L742.5 8.31 L745.0 7.07 L747.5 6.07 L750.0 5.37 L752.5 5.03 L755.0 5.07 L757.5 5.49 L760.0 6.26 L762.5 7.35 L765.0 8.67 L767.5 10.16 L770.0 11.70 L772.5 13.20 L775.0 14.56 L777.5 15.68 L780.0 16.49 L782.5 16.93 L785.0 16.97 L787.5 16.59 L790.0 15.83 L792.5 14.74 L795.0 13.37 L797.5 11.84 L800.0 10.25 L802.5 8.70 L805.0 7.32 L807.5 6.19 L810.0 5.41 L812.5 5.03 L815.0 5.09 L817.5 5.58 L820.0 6.47 L822.5 7.70 L825.0 9.18 L827.5 10.80 L830.0 12.44 L832.5 13.97 L835.0 15.29 L837.5 16.27 L840.0 16.86 L842.5 16.99 L845.0 16.65 L847.5 15.88 L850.0 14.71 L852.5 13.25 L855.0 11.61 L857.5 9.92 L860.0 8.30 L862.5 6.90 L865.0 5.83 L867.5 5.18 L870.0 5.01 L872.5 5.32 L875.0 6.11 L877.5 7.31 L880.0 8.82 L882.5 10.52 L885.0 12.26 L887.5 13.90 L890.0 15.29 L892.5 16.33 L895.0 16.90 L897.5 16.96 L900.0 16.51 L902.5 15.57 L905.0 14.22 L907.5 12.59 L910.0 10.81 L912.5 9.05 L915.0 7.45 L917.5 6.18 L920.0 5.33 L922.5 5.00 L925.0 5.22 L927.5 5.97 L930.0 7.19 L932.5 8.77 L935.0 10.55 L937.5 12.39 L940.0 14.09 L942.5 15.51 L945.0 16.50 L947.5 16.97 L950.0 16.87 L952.5 16.19 L955.0 15.02 L957.5 13.45 L960.0 11.63 L962.5 9.75 L965.0 7.99 L967.5 6.52 L970.0 5.50 L972.5 5.03 L975.0 5.15 L977.5 5.87 L980.0 7.11 L982.5 8.75 L985.0 10.63 L987.5 12.55 L990.0 14.31 L992.5 15.73 L995.0 16.66 L997.5 17.00 L1000.0 16.71"/></svg></div>
+          <div class="em-spectrum-scale"><span>Longer wavelength · lower frequency</span><span>Shorter wavelength · higher frequency</span></div>
+        </div>
+        <p class="figure-caption has-text-centered">Schematic; bands are not shown to scale.</p>
+        <p class="mt-5">
+          Within visible light, humans perceive and categorise a continuous range of wavelengths into color categories such as <em>red</em>. The physical spectrum itself contains no sharp boundaries corresponding to these categories. Instead, color categories arise from the structure of the human visual system and are further shaped by learning, communicative needs and culture. Language provides conventional names for these perceptually grounded categories.</p>
+        <h3 class="title is-3 mt-5">Machines may perceive the world differently</h3>
+        <p>Artificial agents, from self-driving cars to household robots, may use sensors with no human counterpart, including lidar, sonar, remote temperature sensing and infrared cameras. The distinctions that are useful to them need not match those encoded in human language. Instead, useful categories can emerge from the agents' own perceptual capabilities and the tasks they need to solve.</p>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section story-beat">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Language as an abstraction layer</h2>
+    <div class="columns is-vcentered">
+      <div class="column is-5">
+        <div class="content has-text-justified">
+          <p>Even two robots observing the same object may represent it differently. One may measure position, while another measures size. Even when both use the same sensor (e.g., infrared), differences in calibration can produce different readings. Their internal feature vectors may therefore differ both in dimensionality and in value. Directly aligning raw measurements across a growing population would require extensive calibration and coordination.</p>
+          <p>A grounded language offers another possibility: agents can communicate through linguistic abstractions without requiring their underlying representations to be identical. This paper studies how a <b>population of agents</b> can <b>bootstrap</b> such a language through interaction.</p>
+        </div>
+      </div>
+      <div class="column is-7">
+        <div class="story-figure">
+          <div class="sensor-scene-object"><i class="fas fa-cube" aria-hidden="true"></i><span>One object, two observers</span></div>
+          <svg class="sensor-branch" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0 V12 M50 12 L25 32 M50 12 L75 32"/></svg>
+          <div class="agent-sensor-grid">
+            <div class="agent-sensor-card">
+              <div class="agent-sensor-title"><i class="fas fa-robot" aria-hidden="true"></i>Agent A<span class="vector-dimension-count">4 dimensions</span></div>
+              <div class="vector-group shared"><span class="vector-group-label">Infrared camera</span>
+                <div class="vector-entry"><span>IR 850 nm</span><code>0.68</code></div>
+                <div class="vector-entry"><span>IR 940 nm</span><code>0.42</code></div>
+              </div>
+              <div class="vector-group"><span class="vector-group-label">Position sensor</span>
+                <div class="vector-entry"><span>X</span><code>0.42</code></div>
+                <div class="vector-entry"><span>Y</span><code>0.61</code></div>
+              </div>
+            </div>
+            <div class="agent-sensor-card">
+              <div class="agent-sensor-title"><i class="fas fa-robot" aria-hidden="true"></i>Agent B<span class="vector-dimension-count">3 dimensions</span></div>
+              <div class="vector-group shared"><span class="vector-group-label">Infrared camera</span>
+                <div class="vector-entry"><span>IR 850 nm</span><code>0.65</code></div>
+                <div class="vector-entry"><span>IR 940 nm</span><code>0.45</code></div>
+              </div>
+              <div class="vector-group"><span class="vector-group-label">Size sensor</span>
+                <div class="vector-entry"><span>Size</span><code>0.35</code></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section story-beat">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered"><div class="column is-full-width">
+      <h2 class="title is-3">Bootstrapping a language through interaction</h2>
+      <p class="story-lead bootstrapping-lead has-text-justified">The method takes a constructivist perspective: agents build from the ground-up form-meaning pairings through interaction. Rather than learning an existing language, they bootstrap a new one. Their linguistic inventories start empty and grow as needed. Agents learn representations for both producing and understanding utterances.</p>
+      <div class="columns is-vcentered is-variable is-5 reference-game-row mt-4">
+        <div class="column is-7">
+          <figure class="story-figure reference-game-figure">
+            <img src="data/reference-game.png" alt="Reference game with a speaker and listener, showing symbolic and pixel representations of a topic and distractors.">
+            <figcaption class="figure-caption">Adapted from <a href="https://arxiv.org/pdf/1804.03984" target="_blank" rel="noopener noreferrer">arXiv:1804.03984</a>.</figcaption>
+          </figure>
+        </div>
+        <div class="column is-5">
+          <p class="content has-text-justified">Agents form a population and interact locally in pairs. In the reference game shown here, either agent can act as speaker or listener. The speaker selects or invents a word to distinguish a topic from distractors, and the listener uses it to identify the intended topic. Feedback allows both agents to adjust their representations. Over repeated interactions, words are refined and succesful ones spread through the population. In this way, the emerging language becomes grounded in the agents' own experience and adapted to their world and task.</p>
+        </div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section story-beat">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered"><div class="column is-full-width">
+      <h2 class="title is-3">From situated interactions to population-level conventions</h2>
+      <div class="columns is-vcentered">
+        <div class="column is-5">
+          <div class="content has-text-justified">
+            <p>As agents interact over time, we can track how local interactions give rise to a population-level linguistic convention. The x-axis shows the number of interactions. The curves capture three aspects of this process:</p>
+            <ul>
+              <li><strong>Communicative success:</strong> how often the listener correctly identifies the topic. Success rises rapidly as agents learn to coordinate.</li>
+              <li><strong>Conventionality:</strong> how consistently agents use the same words in similar contexts. This increases as independently learned representations become aligned through interaction.</li>
+              <li><strong>Inventory size:</strong> the number of words in active use. Agents continually invent, reuse, and discard words. Forms associated with useful distinctions persist, while less useful alternatives disappear.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column is-7">
+          <figure class="story-figure">
+            <img src="data/clevr-training.svg" alt="Communicative success and conventionality rise as a ten-agent population trains, while its vocabulary size settles">
+            <figcaption class="figure-caption caption-centered">Training dynamics on CLEVR over one million interactions.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="columns is-vcentered mt-5">
+        <div class="column is-7">
+          <figure class="story-figure">
+            <video muted loop playsinline controls preload="none" poster="data/umap-zesura.svg" aria-label="Trajectories of emergent word meanings across training, forming distinct regions in a two-dimensional projection">
+              <source src="data/video.mp4" type="video/mp4">
+              Your browser does not support embedded video. The poster image shows trajectories of emergent word meanings forming distinct regions.
+            </video>
+            <figcaption class="figure-caption caption-centered">A 2D-projection of concept trajectories over time, showing how word meanings settle into distinct niches across the population.</figcaption>
+          </figure>
+        </div>
+        <div class="column is-5">
+          <h3 class="title is-3 has-text-left">Concepts self-organise into niches</h3>
+          <div class="content has-text-justified">
+            <p>Each agent independently maintains and updates its own concepts and linguistic inventory. Agents have no access to one another's internal representations. Despite this, as agents interact over time, initially different representations associated with the same word become increasingly aligned across agents, while competing words progressively differentiate in meaning and form distinct niches in conceptual space.</p>
+            <p>The result is a population-level linguistic convention in which words acquire grounded meanings that support successful reference.</p>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section story-beat">
+  <div class="container is-max-desktop">
+    <div class="columns is-vcentered">
+      <div class="column is-5">
+        <h2 class="title is-3 has-text-left">Emergent concepts</h2>
+        <div class="content has-text-justified">
+          <p>The method operates over perceptual representations of arbitrary dimensionality. We evaluate the method across 37 environments spanning continuous, categorical and mixed feature spaces, including large-scale image datasets such as <a href="https://cocodataset.org/#home" target="_blank" rel="noopener noreferrer">MS COCO</a> and <a href="https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html" target="_blank" rel="noopener noreferrer">CelebA</a>.</p>
+          <p>Consider an example from the <em>exoplanets</em> setting in which agents developed the word <em>penatu</em>. The form itself carries no meaning. Through use, it becomes associated with a concept that combines a continuous feature (radius-multiplier) with a categorical one (planet type).</p>
+        </div>
+      </div>
+      <div class="column is-7">
+        <figure class="story-figure">
+          <img src="data/concept_exo.svg" alt="The emergent word penatu linked to a concept over planet radius and planet type">
+          <figcaption class="figure-caption caption-centered">An example of an emerged word in the <em>exoplanets</em> setting.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section story-beat">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered"><div class="column is-full-width">
+      <h2 class="title is-3">Visualising the production of a word</h2>
+      <p class="story-lead has-text-centered">Explore our interactive visualisation of the core algorithms underlying the methodology.</p>
+      <div class="has-text-centered mt-4 mb-5">
+        <a href="data/geometric-intuition.html" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+          <span class="icon"><i class="fas fa-shapes"></i></span><span>Open Interactive Visualisation&nbsp;↗</span>
+        </a>
+      </div>
+      <iframe class="mini-demo-frame" src="data/geometric-intuition.html?embed=decision-map" title="Animated 2D decision map and angled 3D decision surface with a moving topic" tabindex="-1" loading="lazy"></iframe>
+    </div></div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{botokoekila-etal-2026-emergent,
+  author  = {Botoko Ekila, Jérôme and Verheyen, Lara and Nevens, Jens and Beuls, Katrien and Van Eecke, Paul},
+  title   = {Emergent Communication in Continuous Worlds: Self-Organisation of Conceptually Grounded Vocabularies at Scale},
+  journal = {Transactions of the Association for Computational Linguistics},
+  volume  = {14},
+  pages   = {2234--2257},
+  year    = {2026},
+  doi     = {10.1162/TACL.a.799}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered"><div class="column is-8"><div class="content">
+      <p>This project page is based on the <a href="https://nerfies.github.io/">Nerfies</a> template, licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    </div></div></div>
+  </div>
+</footer>
+
+</body>
+</html>
